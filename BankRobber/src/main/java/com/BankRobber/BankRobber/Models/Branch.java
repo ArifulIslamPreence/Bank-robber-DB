@@ -2,15 +2,21 @@ package com.BankRobber.BankRobber.Models;
 
 public class Branch {
 	
-	private int Id;
+	
 	private String branch_name;
 	private String branch_city;
-	private double asset;
+	private long asset;
 	
-	public void setId(int Id)
+	public Branch(String branch_name,String branch_city)
 	{
-		this.Id = Id;	
+		this.branch_name = branch_name;
+		this.branch_city = branch_city;
+		this.asset = asset;
+		
+		
 	}
+	
+	
 	public void setName(String branch_name)
 	{
 		this.branch_name = branch_name;
@@ -21,15 +27,12 @@ public class Branch {
 		this.branch_city = branch_city;
 	}
 	
-	public void setAsset(double asset)
+	public void setAsset(long asset)
 	{
 		this.asset = asset;
 	}
 	
-	public int getId()
-	{
-		return Id;
-	}
+	
 	public String getName()
 	{
 		return branch_name;

@@ -31,21 +31,11 @@ public class DBConnection {
 			
 		}catch(Exception e)
 		{
-			System.out.print(e.getMessage());
+			e.printStackTrace();;
 		}
 		return conn;
 		
 	}
-	
-	public static void main(String[] args)
-	{
-		DBConnection dbc = new DBConnection();
-		
-		dbc.MainConnection();
-		
-	}
-	
-	
 	
 
 }

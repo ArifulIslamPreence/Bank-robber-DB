@@ -15,15 +15,50 @@ public class DBOperation {
 
 	DBConnection conn = new DBConnection();
 	Statement st;
-	CallableStatement cstmt;
+	CallableStatement cstmt=null;
 	
 	public ResultSet findCustomer()
 	{
 		ResultSet rs;
-		try(Statement st = conn.MainConnection().createStatement()) 
+		try
 		{
 	
-		cstmt = conn.prepareCall();
+		cstmt = conn.MainConnection().prepareCall("{call g5SelectCustomer}");
+		rs = cstmt.executeQuery();
+		
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+		return rs;
+	}
+	
+	public ResultSet showBranchTable()
+	{
+		ResultSet rs;
+		try
+		{
+	
+		cstmt = conn.MainConnection().prepareCall("{call g5DisplayBranch}");
+		rs = cstmt.executeQuery();
+		
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+		return rs;
+	}
+	
+	public ResultSet showBranchName()
+	{
+		ResultSet rs;
+		try
+		{
+	
+		cstmt = conn.MainConnection().prepareCall("{call g5BranchFromLoan}");
+		rs = cstmt.executeQuery();
 		
 		}catch(SQLException e)
 		{
